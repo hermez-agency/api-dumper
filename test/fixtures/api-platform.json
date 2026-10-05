@@ -1,0 +1,48 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "API Platform", "version": "1.0.0" },
+  "paths": {
+    "/api/animals": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Animal collection",
+            "content": {
+              "application/ld+json": { "schema": { "$ref": "#/components/schemas/Animal.jsonld" } },
+              "text/csv": { "schema": { "$ref": "#/components/schemas/Animal.csv" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/exports": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "CSV only",
+            "content": { "text/csv": { "schema": { "$ref": "#/components/schemas/Animal.csv_noid" } } }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Animal.jsonld": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "gender": { "type": ["string", "null"], "format": "iri-reference" }
+        }
+      },
+      "Animal.csv": { "type": "object", "properties": { "name": { "type": "string" } } },
+      "Animal.csv_noid": { "type": "object", "properties": { "name": { "type": "string" } } },
+      "GenderEnum": {
+        "type": "string",
+        "enum": ["MALE", "FEMALE"],
+        "x-enum-name": "Gender",
+        "x-enum-iris": { "MALE": "/api/genders/MALE", "FEMALE": "/api/genders/FEMALE" }
+      }
+    }
+  }
+}

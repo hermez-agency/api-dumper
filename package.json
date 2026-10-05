@@ -1,0 +1,60 @@
+{
+  "name": "api-dumper",
+  "version": "0.1.0",
+  "description": "Generate TypeScript types and enum constants from any OpenAPI 3.x schema, with an API Platform / JSON-LD preset.",
+  "keywords": [
+    "openapi",
+    "typescript",
+    "codegen",
+    "enum",
+    "api-platform",
+    "json-ld",
+    "hydra"
+  ],
+  "license": "MIT",
+  "author": "Salvador Cardona",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalvadorCardona/api-dumper.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "api-dumper": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "jiti": "^2.7.0",
+    "openapi-typescript": "^7.13.0",
+    "yaml": "^2.9.1"
+  },
+  "peerDependencies": {
+    "typescript": ">=5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.0.0"
+  },
+  "packageManager": "pnpm@10.28.0"
+}
