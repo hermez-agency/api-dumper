@@ -206,3 +206,5 @@ pnpm build
 ## License
 
 MIT
+
+A Hermez product — [hermez.dev](https://hermez.dev).
