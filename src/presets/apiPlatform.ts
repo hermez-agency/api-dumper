@@ -2,7 +2,7 @@ import type { EnumDefinition, OpenApiDocument, Preset, PresetContext } from "../
 import { mergeEnums, toTypeName } from "../core/enums.js"
 import { isUrl } from "../core/load.js"
 
-/** Suffix of the schemas API Platform derives per format (`Animal.csv`, `Animal.csv-read`, `Animal.csv_noid`). */
+/** Format suffix of the schemas API Platform derives for each content type (Animal.csv, Animal.csv-read, Animal.csv_noid). */
 const FORMAT_BY_CONTENT_TYPE: Record<string, string> = {
   "text/csv": "csv",
   "application/xml": "xml",
