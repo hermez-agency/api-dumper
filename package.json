@@ -1,6 +1,6 @@
 {
   "name": "api-dumper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate TypeScript types and enum constants from any OpenAPI 3.x schema, with an API Platform / JSON-LD preset.",
   "keywords": [
     "openapi",
